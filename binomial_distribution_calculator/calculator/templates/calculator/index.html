@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+<link rel='stylesheet' href="{% static "calculator/index.css" %}">
+{% endblock css_files %}
+
+{% block title %} Binomial Distribution Calculator {% endblock title %}
+
+{% block content %}
+<div class='row'>
+    <p class='text-primary fs-2 fw-semibold'> Binomial Distribution Calculator </p>
+
+    <p class='fs-4'> The Binomial Distribution Calculator calculates the likelihood an event will occur a
+        specific number of times in
+        a set number of opportunities.
+    </p>
+</div>
+
+<!-- Input -->
+<div class='row'>
+    <div class='col border border-primary p-3 mx-1'>
+        <ul>
+            <li> Enter a value in each of the first three text boxes (the unshaded boxes). </li>
+            <li> Click the <strong> Calculate </strong> button to compute binomial and cumulative probabilities
+            </li>
+        </ul>
+
+        <form id="binomial-form">
+            <div class="row mb-3">
+                <label for="p-success" class="col-sm-6 col-form-label">Probability of Success (p):</label>
+                <div class="col-sm-6">
+                    <input type="number" step="0.0001" min="0" max="1" class="form-control" id="p-success" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="n-trials" class="col-sm-6 col-form-label">Number of Trials (n):</label>
+                <div class="col-sm-6">
+                    <input type="number" min="0" class="form-control" id="n-trials" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="x-successes" class="col-sm-6 col-form-label">Number of Successes (x):</label>
+                <div class="col-sm-6">
+                    <input type="number" min="0" class="form-control" id="x-successes" required>
+                </div>
+            </div>
+
+            <div id="error-message" class="text-danger"></div>
+
+            <div class="text-end">
+                <button type="submit" class="btn btn-primary">Calculate</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Output -->
+    <div class='col border border-primary p-3 mx-1'>
+        <ul>
+            <li> The <strong> Binomial Probability </strong>is the probability of achieving a specific number of
+                successes in a
+                fixed number of independent trials, each with the same probability of success. </li>
+            <br>
+            <li> The <strong> Cumulative Probability </strong> is the probability that a random variable will
+                take a value less than or equal to a specified value. </li>
+        </ul>
+
+        <div class="row mb-3">
+            <label for="binomial-probability" class="col-sm-6 col-form-label"> Binomial Probability: P(X = x):
+            </label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="binomial-probability" disabled>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="cumulative-probability-1" class="col-sm-6 col-form-label"> Cumulative Probability: P(X &lt x):
+            </label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="cumulative-probability-1" disabled>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="cumulative-probability-2" class="col-sm-6 col-form-label"> Cumulative Probability: P(X ≤ x):
+            </label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="cumulative-probability-2" disabled>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="cumulative-probability-3" class="col-sm-6 col-form-label"> Cumulative Probability: P(X &gt x):
+            </label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="cumulative-probability-3" disabled>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="cumulative-probability-4" class="col-sm-6 col-form-label"> Cumulative Probability: P(X ≥ x):
+            </label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="cumulative-probability-4" disabled>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('binomial-form').addEventListener('submit', function (e) {
+        e.preventDefault();  // Prevent page reload
+
+        // Get input values
+        const probability = document.getElementById('p-success').value;
+        const trials = document.getElementById('n-trials').value;
+        const successes = document.getElementById('x-successes').value;
+
+        // Send data to Django view
+        fetch('/calculate/', {  // Updated to match the new URL in urls.py
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}'  // Django CSRF token
+            },
+            body: JSON.stringify({
+                probability: probability,
+                trials: trials,
+                successes: successes
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Update output fields
+                document.getElementById('binomial-probability').value = data.binomial_probability;
+                document.getElementById('cumulative-probability-1').value = data.cumulative_probability_lt;
+                document.getElementById('cumulative-probability-2').value = data.cumulative_probability_lte;
+                document.getElementById('cumulative-probability-3').value = data.cumulative_probability_gt;
+                document.getElementById('cumulative-probability-4').value = data.cumulative_probability_gte;
+            })
+            .catch(error => console.error('Error:', error));
+    });
+</script>
+
+{% endblock content %}

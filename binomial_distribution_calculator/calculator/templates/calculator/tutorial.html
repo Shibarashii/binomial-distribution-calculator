@@ -1,0 +1,223 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+<link rel='stylesheet' href="{% static "calculator/index.css" %}">
+{% endblock css_files %}
+
+{% block title %} Tutorial {% endblock title %}
+
+<!-- Sidebar-->
+{% block sidebar %}
+<div class="container border border-dark">
+    <a class='fs-7 text-decoration-none text-start fw-bold' href="#introduction-to-binomial-distribution"> Introduction
+        to Binomial Distribution </a>
+    <a class='fs-7 text-decoration-none text-start fw-bold' href="#key-terms-in-binomial-distribution"> Key Terms in
+        Binomial Distribution </a>
+    <ul class='list-unstyled ms-3'>
+        <li><a class="fs-7 text-decoration-none text-start" href="#X"> X (Random Variable) </a></li>
+        <li><a class="fs-7 text-decoration-none text-start" href="#x"> x (Number of Successes)</a></li>
+        <li><a class="fs-7 text-decoration-none text-start" href="#P"> P (Probability) </a></li>
+        <li><a class="fs-7 text-decoration-none text-start" href="#p"> p (Probability of Success) </a></li>
+        <li><a class="fs-7 text-decoration-none text-start" href="#n"> n (Number of Trials) </a></li>
+    </ul>
+    <a class='fs-7 text-decoration-none text-start fw-bold' href="#steps-for-using-the-calculator"> Steps for
+        Using the Calculator </a>
+    <ul class='list-unstyled ms-3'>
+        <li><a class="fs-7 text-decoration-none text-start" href="#step-1"> Step 1 </a></li>
+        <li><a class="fs-7 text-decoration-none text-start" href="#step-2"> Step 2 </a></li>
+        <li><a class="fs-7 text-decoration-none text-start" href="#step-3"> Step 3 </a></li>
+        <li><a class="fs-7 text-decoration-none text-start" href="#step-4"> Step 4 </a></li>
+    </ul>
+    <a class='fs-7 text-decoration-none text-start fw-bold' href="#understanding-the-output"> Understanding
+        the Output </a>
+    <ul class='list-unstyled ms-3'>
+        <li><a class="fs-7 text-decoration-none text-start" href="#binomial-probability"> P(X = x) </a></li>
+        <li><a class="fs-7 text-decoration-none text-start" href="#cumulative-probability-1"> P(X &lt x) </a></li>
+        <li><a class="fs-7 text-decoration-none text-start" href="#cumulative-probability-2"> P(X ≤ x) </a></li>
+        <li><a class="fs-7 text-decoration-none text-start" href="#cumulative-probability-3"> P(X &gt x) </a></li>
+        <li><a class="fs-7 text-decoration-none text-start" href="#cumulative-probability-4"> P(X ≥ x) </a></li>
+    </ul>
+    <a class='fs-7 text-decoration-none text-start fw-bold' href="#sample-problems"> Sample Problems </a>
+    <ul class='list-unstyled ms-3'>
+        <li><a class="fs-7 text-decoration-none text-start" href="#sample-problem-1"> Sample Problem 1 </a></li>
+        <li><a class="fs-7 text-decoration-none text-start" href="#sample-problem-1"> Sample Problem 2 </a></li>
+        <li><a class="fs-7 text-decoration-none text-start" href="#sample-problem-1"> Sample Problem 3 </a></li>
+    </ul>
+</div>
+{% endblock sidebar %}
+
+<!-- Content -->
+{% block content %}
+<div>
+    <p class='text-primary fs-2 fw-semibold'>How to Use the Binomial Distribution Calculator</p>
+
+    <section id='introduction-to-binomial-distribution'>
+        <p class='fs-4 fw-semibold'> 1. Introduction to Binomial Distribution </p>
+        <p> A binomial distribution describes the number of successess in a fixed number of
+            trials, where each trial has two possible outcomes (success or failure), and the probability of success is
+            constant across trials
+        </p>
+        <p> Real World Example: If you flip a coin 10 times, the binomial distribution
+            calculates the
+            probability of getting exactly 3 heads (successess) out of those 10 flips</p>
+    </section>
+
+    <section id="key-terms-in-binomial-distribution">
+        <p class='fs-4 fw-semibold'> 2. Key Terms in Binomial Distribution </p>
+        <p> Understanding the terms used in Binomial Distribution is crucial to understand how the calculator works.
+            These are the key terms that are used in the calculator</p>
+        <ul>
+            <li>
+                <p id='X'> <b><i>X</i> (Random Variable):</b> It represents a random variable that counts the number of
+                    successes in a given number of trials. It can take integer values from 0 to <i>n</i>, where <i>n</i>
+                    is the total number of trials. For example, if you flip a coin 10 times, <i>X</i> could represent
+                    the number of heads that appear.
+                </p>
+            </li>
+            <li>
+                <p id='x'> <b><i>x</i> (Number of Successes):</b> It is a specific value that the random variable
+                    <i>X</i> can take. It is used to calculate the probability of having exactly <i>x</i> successes out
+                    of <i>n</i> trials. For example, if <i>X</i> represents the number of heads in 10 flips of a coin,
+                    <i>x = 5</i> would mean you are interested in the probability of getting exactly 5 heads.
+                </p>
+            </li>
+            <li>
+                <p id='P'> <b><i>P</i> (Probability): </b> It represents the probability of specific events or outcomes.
+                </p>
+            </li>
+            <li>
+                <p id='p'> <b><i>p</i> (Probability of Success): </b> It is the probability of success on a single
+                    trial.
+                </p>
+            </li>
+            <li>
+                <p id='n'> <b><i>n</i> (Number of Trials): </b> It represents the number of trials or experiments.
+                </p>
+            </li>
+        </ul>
+
+    </section>
+    <section id='steps-for-using-the-calculator'>
+        <p class='fs-4 fw-semibold'> 3. Steps for Using the Calculator </p>
+        <ul>
+            <li>
+                <p id='step-1'> <b>Step 1.</b> Enter the probability of success for each trial (between 0 and 1). The
+                    numbers 0 and 1 represent 0% and 100% respectively. So, if you have a fair coin, the probability of
+                    heads (success) is 0.5 (50%).
+                    <br>
+                    The <b> probability of success </b> is represented by lowercase <b><i>p</i></b>
+                </p>
+            </li>
+            <li>
+                <p id='step-2'> <b>Step 2.</b> Enter the number of trials or experiments you will conduct. For example,
+                    if you're flipping a coin 10 times, the number of trial is 10 times.
+                    <br>
+                    The <b> number of trials </b> is represented by lowercase <b><i>n</i></b>
+                </p>
+            </li>
+            <li>
+                <p id='step-3'> <b>Step 3.</b> Enter the number of successes you want to calculate the probability for.
+                    For example, if you're interested in how likely it is to get 3 heads out of 10 coin flips, enter 3
+                    <br>
+                    The <b> number of successes </b> is represented by lowercase <b><i>x</i></b> <br>
+                    Note that this is different from the variable <b><i>X</i></b>, which represents a random variable
+                    that counts the number of successes in a given number of trials.
+                </p>
+            </li>
+            <li>
+                <p id='step-4'> <b>Step 4.</b> After entering your values, click the <b>"Calculate"</b> button to
+                    compute the
+                    binomial and cummulative probabilities
+                </p>
+            </li>
+        </ul>
+
+        <p> Note that the number of successes cannot exceed the number of trials. Doing so will result in an undefined
+            value. </p>
+    </section>
+
+    <section id="understanding-the-output">
+        <p class='fs-4 fw-semibold'> 4. Understanding the Output</p>
+        <ul>
+            <li id='binomial-probability'>
+                <b>Binomial Probability: P(X = x)</b> <br>
+                The binomial probability shows the likelihood of getting exactly
+                <i>x</i> successes in <i>n</i> trials
+            </li> <br>
+            <li id='cumulative-probability-1'>
+                <b>Cumulative Probability: P(X &lt x)</b> <br>
+                The cumulative probability P(X &lt x) represents the probability of getting fewer than <i>x</i>
+                successes in <i>n</i> trials
+            </li> <br>
+            <li id='cumulative-probability-2'>
+                <b>Cumulative Probability P(X ≤ x)</b> <br>
+                The probability of getting <i>x</i> or fewer successes in <i>n</i> trials
+            </li> <br>
+            <li id='cumulative-probability-3'>
+                <b>Cumulative Probability P(X &gt x)</b> <br>
+                The probability of getting more than <i>x</i> successes in <i>n</i> trials
+            </li> <br>
+            <li id='cumulative-probability-4'>
+                <b>Cumulative Probability P(X ≥ x)</b> <br>
+                The probability of getting <i>x</i> or more successes in <i>n</i> trials
+            </li> <br>
+        </ul>
+    </section>
+
+    <section id="sample-problems">
+        <p class='fs-4 fw-semibold'> 5. Sample Problems </p>
+        <ul>
+            <li id='sample-problem-1'>
+                <p> Suppose a basketball player makes 60% of free throws. He attempts 10 free throws. What is the
+                    probability that he will make exactly 7 of them? </p>
+
+                <ul>
+                    <li> <b><i>p</i> (Probability of Success):</b> 0.6 (60%) <br> </li>
+                    <li> <b><i>n</i> (Number of Trials):</b> 10 <br> </li>
+                    <li> <b><i>x</i> (Number of Successes):</b> 7 <br> </li>
+                </ul> <br>
+
+                <p>The one we are looking for is the <b>Binomial Probability: P(X = x)</b>, where the number of
+                    successes must be exactly 7 out of the 10 total trials. Assign the values above to the calculator
+                    and check the results!</p>
+            </li>
+            <li id='sample-problem-2'>
+                <p> In a survey, 70% of people say they like chocolate. Suppose we randomly select 12 people. What is
+                    the probability that more than 7 of them will say they like chocolate? </p>
+
+                <ul>
+                    <li> <b><i>p</i> (Probability of Success):</b> 0.7 <br> </li>
+                    <li> <b><i>n</i> (Number of Trials):</b> 12 <br> </li>
+                    <li> <b><i>x</i> (Number of Successes):</b> 7 <br> </li>
+                </ul> <br>
+
+                <p> The one we are looking for is the <b>Cumulative Probability: P(X &gt x)</b>, where the number of
+                    successes must be more than 7 out of the 12 total trials. Assign the values above to the calculator
+                    and check the results!</p>
+
+            </li>
+            <li id='sample-problem-3'>
+                <p>
+                    The College of Engineering at LSPU-SCC had an overall passing rate of 67.31%. If a group of 15
+                    engineering graduates from this college takes the licensure exam, what is the probability that 8 or
+                    less of them will pass?
+                </p>
+
+                <ul>
+                    <li> <b><i>p</i> (Probability of Success):</b> 0.6731 <br> </li>
+                    <li> <b><i>n</i> (Number of Trials):</b> 15 <br> </li>
+                    <li> <b><i>x</i> (Number of Successes):</b> 8 <br> </li>
+                </ul> <br>
+
+                <p> The one we are looking for is the <b>Cumulative Probability: P(X ≤ x)</b>, where the number of
+                    successes must be 8 or less out of the 15 total trials. Assign the values above to the calculator
+                    and check the results!</p>
+
+            </li>
+        </ul>
+    </section>
+</div>
+
+
+{% endblock content %}
