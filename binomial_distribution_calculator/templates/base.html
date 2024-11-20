@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> {% block title %} {% endblock title %} </title>
     <link rel='stylesheet' href="{% static 'bootstrap.css' %}">
+    <link rel='stylesheet' href="{% static 'index.css' %}">
     {% block css_files %}{% endblock css_files %}
 </head>
 
@@ -16,7 +17,7 @@
     <div class='container-fluid mt-5 m-3 py-5'>
         <div class='row'>
             <div class='col-2'> 
-                <div class='col-2 position-fixed start-0 px-3'> 
+                <div class='col-2 position-fixed start-0 px-3' id='sidebar'> 
                     {% block sidebar %}{% endblock sidebar %}
                 </div>
             </div>
@@ -30,5 +31,7 @@
         </div>
     </div>
 </body>
+
+<script src={% static "bootstrap.bundle.min.js" %}></script>
 
 </html>

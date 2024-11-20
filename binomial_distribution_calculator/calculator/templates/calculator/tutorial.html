@@ -1,48 +1,41 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block css_files %}
-<link rel='stylesheet' href="{% static "calculator/index.css" %}">
-{% endblock css_files %}
-
 {% block title %} Tutorial {% endblock title %}
 
 <!-- Sidebar-->
 {% block sidebar %}
-<div class="container border border-dark">
-    <a class='fs-7 text-decoration-none text-start fw-bold' href="#introduction-to-binomial-distribution"> Introduction
-        to Binomial Distribution </a>
-    <a class='fs-7 text-decoration-none text-start fw-bold' href="#key-terms-in-binomial-distribution"> Key Terms in
-        Binomial Distribution </a>
-    <ul class='list-unstyled ms-3'>
+<div class="container border border-dark" id="toc">
+    <a class="fs-7 text-decoration-none text-start fw-bold" href="#introduction-to-binomial-distribution">
+        Introduction </a> <br>
+    <a class="fs-7 text-decoration-none text-start fw-bold" href="#key-terms-in-binomial-distribution"> Key Terms </a>
+    <ul class="list-unstyled ms-3">
         <li><a class="fs-7 text-decoration-none text-start" href="#X"> X (Random Variable) </a></li>
-        <li><a class="fs-7 text-decoration-none text-start" href="#x"> x (Number of Successes)</a></li>
+        <li><a class="fs-7 text-decoration-none text-start" href="#x"> x (Successes)</a></li>
         <li><a class="fs-7 text-decoration-none text-start" href="#P"> P (Probability) </a></li>
-        <li><a class="fs-7 text-decoration-none text-start" href="#p"> p (Probability of Success) </a></li>
-        <li><a class="fs-7 text-decoration-none text-start" href="#n"> n (Number of Trials) </a></li>
+        <li><a class="fs-7 text-decoration-none text-start" href="#p"> p (Success Probability) </a></li>
+        <li><a class="fs-7 text-decoration-none text-start" href="#n"> n (Trials) </a></li>
     </ul>
-    <a class='fs-7 text-decoration-none text-start fw-bold' href="#steps-for-using-the-calculator"> Steps for
-        Using the Calculator </a>
-    <ul class='list-unstyled ms-3'>
+    <a class="fs-7 text-decoration-none text-start fw-bold" href="#steps-for-using-the-calculator"> Steps </a>
+    <ul class="list-unstyled ms-3">
         <li><a class="fs-7 text-decoration-none text-start" href="#step-1"> Step 1 </a></li>
         <li><a class="fs-7 text-decoration-none text-start" href="#step-2"> Step 2 </a></li>
         <li><a class="fs-7 text-decoration-none text-start" href="#step-3"> Step 3 </a></li>
         <li><a class="fs-7 text-decoration-none text-start" href="#step-4"> Step 4 </a></li>
     </ul>
-    <a class='fs-7 text-decoration-none text-start fw-bold' href="#understanding-the-output"> Understanding
-        the Output </a>
-    <ul class='list-unstyled ms-3'>
+    <a class="fs-7 text-decoration-none text-start fw-bold" href="#understanding-the-output"> Output </a>
+    <ul class="list-unstyled ms-3">
         <li><a class="fs-7 text-decoration-none text-start" href="#binomial-probability"> P(X = x) </a></li>
         <li><a class="fs-7 text-decoration-none text-start" href="#cumulative-probability-1"> P(X &lt x) </a></li>
         <li><a class="fs-7 text-decoration-none text-start" href="#cumulative-probability-2"> P(X ≤ x) </a></li>
         <li><a class="fs-7 text-decoration-none text-start" href="#cumulative-probability-3"> P(X &gt x) </a></li>
         <li><a class="fs-7 text-decoration-none text-start" href="#cumulative-probability-4"> P(X ≥ x) </a></li>
     </ul>
-    <a class='fs-7 text-decoration-none text-start fw-bold' href="#sample-problems"> Sample Problems </a>
-    <ul class='list-unstyled ms-3'>
-        <li><a class="fs-7 text-decoration-none text-start" href="#sample-problem-1"> Sample Problem 1 </a></li>
-        <li><a class="fs-7 text-decoration-none text-start" href="#sample-problem-1"> Sample Problem 2 </a></li>
-        <li><a class="fs-7 text-decoration-none text-start" href="#sample-problem-1"> Sample Problem 3 </a></li>
+    <a class="fs-7 text-decoration-none text-start fw-bold" href="#sample-problems"> Examples </a>
+    <ul class="list-unstyled ms-3">
+        <li><a class="fs-7 text-decoration-none text-start" href="#sample-problem-1"> Problem 1 </a></li>
+        <li><a class="fs-7 text-decoration-none text-start" href="#sample-problem-2"> Problem 2 </a></li>
+        <li><a class="fs-7 text-decoration-none text-start" href="#sample-problem-3"> Problem 3 </a></li>
     </ul>
 </div>
 {% endblock sidebar %}

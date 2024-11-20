@@ -1,8 +1,187 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block css_files %}
-<link rel='stylesheet' href="{% static " index.css" %}">
-{% endblock css_files %}
-
 {% block title %} Frequently Asked Questions {% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-primary fs-2 fw-semibold">Frequently Asked Questions</h2>
+
+    <div class="accordion mt-5" id="faqAccordion">
+        <!-- Question 1 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-secondary-subtle border border-secondary-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                    What is Binomial Distribution?
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    The binomial distribution is a discrete probability distribution that models the number of successes in a fixed number of independent trials, each with the same probability of success.
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-secondary-subtle border border-secondary-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                    What are the key properties of a binomial distribution?
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    <ul>
+                        <li> Fixed number of trials (<i>n</i>)</li>
+                        <li> Each trial has only two outcomes: success or failure</li>
+                        <li> Probability of success (<i>p</i>) is the same for all trials </li>
+                        <li> The trials are independent of each other </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-secondary-subtle border border-secondary-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                    What is an example of a binomial experiment?
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Flipping a coin 10 times to count the number of heads is a binomial experiment because each flip is independent, has two outcomes (head or tail), and has a fixed probability of success (<i>p</i> = 0.5).
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-secondary-subtle border border-secondary-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                    What is the difference between a binomial and normal distribution?
+                </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    A binomial distribution is discrete, while a normal distribution is continuous. However, for large 𝑛 and when 𝑝 is not too close to 0 or 1, the binomial distribution can be approximated by a normal distribution.
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-secondary-subtle border border-secondary-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+                    What does "number of trials" mean?
+                </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    This refers to the total number of times an experiment or event is repeated. For example, if you flip a coin 10 times, the number of trials is 10.
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-secondary-subtle border border-secondary-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix">
+                    What do I enter for "probability of success"?
+                </button>
+            </h2>
+            <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    This is the likelihood of success in a single trial. If something happens 70% of the time, you enter 0.70.
+                </div>
+            </div>
+        </div>
+        
+        <!-- Question 7 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-secondary-subtle border border-secondary-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven">
+                    Can the probability of success be more than 1?
+                </button>
+            </h2>
+            <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    No, the probability of success must be between 0 and 1, representing a percentage or fraction of success.
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-secondary-subtle border border-secondary-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight">
+                    What is "cumulative probability"?
+                </button>
+            </h2>
+            <div id="collapseEight" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    It is the likelihood that the number of successes will be less than or equal to a certain value.
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-secondary-subtle border border-secondary-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine">
+                    What if I get a binomial probability of 0?
+                </button>
+            </h2>
+            <div id="collapseNine" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    A binomial probability of 0 means that the event is extremely unlikely or impossible to happen with the given parameters.
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-secondary-subtle border border-secondary-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen">
+                    What is the difference between a success and a failure in a binomial experiment?
+                </button>
+            </h2>
+            <div id="collapseTen" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    In a binomial experiment, a "success" refers to the outcome of interest or the event we are measuring, while a "failure" is any other outcome. The definitions of success and failure depend on the context of the problem.
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 11 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-secondary-subtle border border-secondary-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven">
+                    How is independence important in a binomial distribution?
+                </button>
+            </h2>
+            <div id="collapseEleven" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Independence ensures that the outcome of one trial does not affect the outcome of any other trial. Without independence, the binomial distribution cannot be applied.
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 12 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-secondary-subtle border border-secondary-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwelve">
+                    Can the binomial distribution be used for real-world data?
+                </button>
+            </h2>
+            <div id="collapseTwelve" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Yes, the binomial distribution is used in real-world scenarios such as predicting election outcomes, testing medical treatments, or analyzing product quality.
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}
