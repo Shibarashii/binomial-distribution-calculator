@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}Poisson Distribution Calculator{% endblock title %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/poisson.css') }}">
+{% endblock css_files %}
+
+{% block content %}
+<div class="fade-in">
+    <h2 class="text-primary fs-2 fw-semibold"><i class="fas fa-calculator me-2"></i>Poisson Distribution Calculator</h2>
+    <p class="fs-5">Calculate the probability of a given number of events occurring in a fixed interval of time or space.</p>
+
+    <div class="row mt-4">
+        <div class="col-md-6 slide-in-left">
+            <div class="input-box shadow-sm p-4">
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-info-circle me-2 text-primary"></i>Enter values in the unshaded boxes below.</li>
+                    <li><i class="fas fa-mouse-pointer me-2 text-primary"></i>Click <strong>Calculate</strong> to see results.</li>
+                    <br>
+                    <li><i class="fas fa-exclamation-triangle me-2 text-warning"></i><em>Lambda must be non-negative, and k must be a non-negative integer.</em></li>
+                </ul>
+                <form id="poisson-form" class="mt-4">
+                    <div class="row mb-3">
+                        <label for="lambda" class="col-sm-6 col-form-label fw-semibold">Average Rate (λ):</label>
+                        <div class="col-sm-6">
+                            <input type="number" step="0.01" min="0" class="form-control input-field" id="lambda" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="k-events" class="col-sm-6 col-form-label fw-semibold">Number of Events (k):</label>
+                        <div class="col-sm-6">
+                            <input type="number" min="0" class="form-control input-field" id="k-events" required>
+                        </div>
+                    </div>
+                    <div id="error-message" class="text-danger mb-3"></div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary btn-calculate"><i class="fas fa-play me-2"></i>Calculate</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-6 slide-in-right">
+            <div class="output-box shadow-sm p-4">
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-chart-bar me-2 text-primary"></i><strong>Poisson Probability:</strong> Chance of exactly k events.</li>
+                    <li><i class="fas fa-chart-line me-2 text-primary"></i><strong>Cumulative Probability:</strong> Range-based probabilities.</li>
+                </ul>
+                <div class="row mb-3 mt-4">
+                    <label for="poisson-probability" class="col-sm-6 col-form-label fw-semibold">P(X = k):</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control result-field" id="poisson-probability" disabled>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="cumulative-probability-1" class="col-sm-6 col-form-label fw-semibold">P(X < k):</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control result-field" id="cumulative-probability-1" disabled>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="cumulative-probability-2" class="col-sm-6 col-form-label fw-semibold">P(X ≤ k):</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control result-field" id="cumulative-probability-2" disabled>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="cumulative-probability-3" class="col-sm-6 col-form-label fw-semibold">P(X > k):</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control result-field" id="cumulative-probability-3" disabled>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="cumulative-probability-4" class="col-sm-6 col-form-label fw-semibold">P(X ≥ k):</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control result-field" id="cumulative-probability-4" disabled>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block js_files %}
+<script src="{{ url_for('static', filename='js/poisson.js') }}"></script>
+{% endblock js_files %}

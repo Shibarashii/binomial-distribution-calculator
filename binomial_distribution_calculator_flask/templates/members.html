@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Our Team{% endblock title %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/members.css') }}">
+{% endblock css_files %}
+
+{% block content %}
+<div class="container-fluid fade-in">
+    <p class="text-primary fs-2 fw-semibold text-center"><i class="fas fa-users me-2"></i>Our Team</p>
+    <p class="fs-5 text-center">A passionate group of innovators creating impactful solutions.</p>
+    <div class="row justify-content-center my-5">
+        <div class="col-lg-4 mb-3">
+            <div class="card h-100 shadow-sm member-card">
+                <div class="card-body text-center">
+                    <img class="img-fluid member-img" src="{{ url_for('static', filename='assets/valdeabella.jpeg') }}" alt="Valdeabella">
+                    <h5 class="card-title mt-3">Seanrei Ethan Valdeabella</h5>
+                    <p class="card-text text-muted">Back-End Programmer</p>
+                    <p class="card-text">seanrei.ethan23@gmail.com</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/seanrei.ethan23/" target="_blank" class="mx-2"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="https://www.linkedin.com/in/valdeabella-seanrei-ethan-b66557339/" target="_blank" class="mx-2"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="https://github.com/Shibarashii/" target="_blank" class="mx-2"><i class="fab fa-github fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 mb-3">
+            <div class="card h-100 shadow-sm member-card">
+                <div class="card-body text-center">
+                    <img class="img-fluid member-img" src="{{ url_for('static', filename='assets/VoxDroid.jpg') }}" alt="Valdeabella">
+                    <h5 class="card-title mt-3">Mhar Andrei Macapallag</h5>
+                    <p class="card-text text-muted">Code Bender</p>
+                    <p class="card-text">idonthaveanemail@gmail.com</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/" target="_blank" class="mx-2"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="https://www.linkedin.com/" target="_blank" class="mx-2"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="https://github.com/VoxDroid/" target="_blank" class="mx-2"><i class="fab fa-github fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

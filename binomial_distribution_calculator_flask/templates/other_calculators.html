@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Other Calculators{% endblock title %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/other_calculators.css') }}">
+{% endblock css_files %}
+
+{% block content %}
+<div class="container fade-in">
+    <h2 class="text-primary fs-2 fw-semibold"><i class="fas fa-calculator me-2"></i>Other Calculators</h2>
+    <p class="fs-5">Explore additional probability calculators related to the Binomial Distribution Calculator.</p>
+    <div class="row mt-4">
+        <div class="col-md-6 mb-3">
+            <div class="calculator-card shadow-sm">
+                <h4 class="card-title">Poisson Distribution Calculator</h4>
+                <p class="card-text">Calculate probabilities for the Poisson distribution, ideal for modeling the number of events in a fixed interval.</p>
+                <a href="{{ url_for('poisson') }}" class="btn btn-primary">Go to Calculator</a>
+            </div>
+        </div>
+        <!-- Add more calculators here in the future -->
+    </div>
+</div>
+{% endblock content %}
